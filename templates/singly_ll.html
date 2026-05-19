@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Singly Linked List{% endblock %}
+{% block content %}
+<div class="viz-container">
+    <div class="viz-header">
+        <h2>Singly Linked List Visualizer</h2>
+        <p>A linear data structure where each node points to the next node.</p>
+    </div>
+
+    <div class="controls">
+        <label>Value:</label>
+        <input type="number" id="nodeVal" value="42" min="0" max="999" style="width:70px">
+
+        <label>Index:</label>
+        <input type="number" id="nodeIdx" value="0" min="0" max="99" style="width:55px">
+
+        <button class="btn btn-primary" id="insertFrontBtn">Insert Front</button>
+        <button class="btn btn-primary" id="insertEndBtn">Insert End</button>
+        <button class="btn btn-primary" id="insertIdxBtn">Insert at Index</button>
+        <button class="btn btn-danger" id="deleteFrontBtn">Delete Front</button>
+        <button class="btn btn-danger" id="deleteEndBtn">Delete End</button>
+        <button class="btn btn-danger" id="deleteIdxBtn">Delete at Index</button>
+        <button class="btn btn-success" id="updateBtn">Update at Index</button>
+        <button class="btn btn-secondary" id="resetBtn">Reset</button>
+    </div>
+
+    <div class="status-bar">
+        <span class="status-label">Status:</span>
+        <span id="statusMsg">Ready — Singly Linked List initialized with [10 → 20 → 30 → 40]</span>
+    </div>
+
+    <div class="viz-area" id="vizArea">
+        <svg id="llSvg" style="min-width:100%;min-height:180px"></svg>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/singly_ll.js"></script>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Stack Visualizer{% endblock %}
+{% block content %}
+<div class="viz-container">
+    <div class="viz-header">
+        <h2>Stack Visualizer (LIFO)</h2>
+        <p>Last In, First Out — Push adds to the top; Pop removes from the top.</p>
+    </div>
+
+    <div class="controls">
+        <label>Value:</label>
+        <input type="number" id="stackVal" value="42" min="0" max="999" style="width:70px">
+
+        <label>Max Size:</label>
+        <input type="number" id="maxSize" value="8" min="3" max="15" style="width:55px">
+
+        <button class="btn btn-primary" id="pushBtn">Push</button>
+        <button class="btn btn-danger" id="popBtn">Pop</button>
+        <button class="btn btn-secondary" id="resetBtn">Reset</button>
+    </div>
+
+    <div class="status-bar">
+        <span class="status-label">Status:</span>
+        <span id="statusMsg">Stack ready — Push values onto the stack</span>
+        <span id="sizeInfo" style="margin-left:auto;color:#6b7280;font-size:0.82rem"></span>
+    </div>
+
+    <div class="viz-area" style="align-items:flex-end;justify-content:center;min-height:360px;padding:30px 40px">
+        <svg id="stackSvg" width="260" height="340"></svg>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/stack.js"></script>
+{% endblock %}

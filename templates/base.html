@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DSA Visualizer Suite{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="nav-brand">DSA Visualizer Suite</a>
+        <div class="nav-links">
+            <a href="/sorting" class="nav-link {% if request.path == '/sorting' %}active{% endif %}">Sorting</a>
+            <a href="/singly-ll" class="nav-link {% if request.path == '/singly-ll' %}active{% endif %}">Singly LL</a>
+            <a href="/doubly-ll" class="nav-link {% if request.path == '/doubly-ll' %}active{% endif %}">Doubly LL</a>
+            <a href="/stack" class="nav-link {% if request.path == '/stack' %}active{% endif %}">Stack</a>
+            <a href="/queue" class="nav-link {% if request.path == '/queue' %}active{% endif %}">Queue</a>
+        </div>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Queue Visualizer{% endblock %}
+{% block content %}
+<div class="viz-container">
+    <div class="viz-header">
+        <h2>Queue Visualizer (FIFO)</h2>
+        <p>First In, First Out — Enqueue adds to the rear; Dequeue removes from the front.</p>
+    </div>
+
+    <div class="controls">
+        <label>Value:</label>
+        <input type="number" id="queueVal" value="42" min="0" max="999" style="width:70px">
+
+        <label>Max Size:</label>
+        <input type="number" id="maxSize" value="10" min="3" max="15" style="width:55px">
+
+        <button class="btn btn-primary" id="enqueueBtn">Enqueue (Add Rear)</button>
+        <button class="btn btn-danger" id="dequeueBtn">Dequeue (Remove Front)</button>
+        <button class="btn btn-secondary" id="resetBtn">Reset</button>
+    </div>
+
+    <div class="status-bar">
+        <span class="status-label">Status:</span>
+        <span id="statusMsg">Queue ready — Enqueue to add elements</span>
+        <span id="sizeInfo" style="margin-left:auto;color:#6b7280;font-size:0.82rem"></span>
+    </div>
+
+    <div class="viz-area" style="min-height:220px;overflow-x:auto">
+        <svg id="queueSvg" style="min-width:600px;min-height:180px"></svg>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/queue.js"></script>
+{% endblock %}

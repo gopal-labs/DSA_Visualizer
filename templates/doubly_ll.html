@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Doubly Linked List{% endblock %}
+{% block content %}
+<div class="viz-container">
+    <div class="viz-header">
+        <h2>Doubly Linked List Visualizer</h2>
+        <p>Each node stores both a forward (next) and backward (prev) pointer.</p>
+    </div>
+
+    <div class="controls">
+        <label>Value:</label>
+        <input type="number" id="nodeVal" value="45" min="0" max="999" style="width:70px">
+
+        <button class="btn btn-primary" id="insertFrontBtn">Insert Front</button>
+        <button class="btn btn-primary" id="insertEndBtn">Insert End</button>
+        <button class="btn btn-danger" id="deleteFrontBtn">Delete Front</button>
+        <button class="btn btn-danger" id="deleteEndBtn">Delete End</button>
+        <button class="btn btn-secondary" id="resetBtn">Reset</button>
+    </div>
+
+    <div class="status-bar">
+        <span class="status-label">Status:</span>
+        <span id="statusMsg">Ready — Doubly Linked List initialized with [25 ⇌ 15 ⇌ 5]</span>
+    </div>
+
+    <div class="viz-area" id="vizArea" style="min-height:220px">
+        <svg id="dllSvg" style="min-width:100%;min-height:220px"></svg>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/doubly_ll.js"></script>
+{% endblock %}

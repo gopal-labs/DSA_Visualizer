@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Sorting Visualizer{% endblock %}
+{% block content %}
+<div class="viz-container">
+    <div class="viz-header">
+        <h2>Sorting Algorithms Visualizer</h2>
+        <p>Select an algorithm, then press Run. Use Randomize to generate a new array.</p>
+    </div>
+
+    <div class="controls">
+        <label>Algorithm:</label>
+        <select id="algoSelect">
+            <optgroup label="Quadratic O(n²)">
+                <option value="bubble">Bubble Sort</option>
+                <option value="insertion">Insertion Sort</option>
+                <option value="selection">Selection Sort</option>
+            </optgroup>
+            <optgroup label="Logarithmic O(n log n)">
+                <option value="quick">Quick Sort</option>
+                <option value="merge">Merge Sort</option>
+                <option value="heap">Heap Sort</option>
+            </optgroup>
+            <optgroup label="Linear O(n)">
+                <option value="counting">Counting Sort</option>
+                <option value="radix">Radix Sort</option>
+            </optgroup>
+        </select>
+
+        <label>Bars:</label>
+        <input type="number" id="barCount" value="25" min="5" max="60" style="width:60px">
+
+        <div class="speed-group">
+            <label>Speed:</label>
+            <input type="range" id="speedSlider" min="1" max="10" value="5">
+        </div>
+
+        <button class="btn btn-primary" id="runBtn">▶ Run</button>
+        <button class="btn btn-secondary" id="randomBtn">🔀 Randomize</button>
+        <button class="btn btn-danger" id="stopBtn" disabled>⏹ Stop</button>
+    </div>
+
+    <div class="status-bar">
+        <span class="status-label">Status:</span>
+        <span id="statusMsg">Choose an algorithm and press Run</span>
+        <span id="compCount" style="margin-left:auto;color:#6b7280;font-size:0.8rem"></span>
+    </div>
+
+    <canvas id="sortCanvas" height="480"></canvas>
+
+    <div class="legend" style="margin-top:14px">
+        <div class="legend-item"><div class="legend-dot" style="background:#00b4d8"></div> Unsorted</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#d62828"></div> Comparing</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#38b000"></div> Sorted</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f77f00"></div> Pivot / Key</div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/sorting.js"></script>
+{% endblock %}
